@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/login.css">
     <script src="./assets/jquery-3.5.1.js"></script>
+    <script src="./assets/baseAPI.js"></script>
     <script src="./assets/layui/layui.all.js"></script>
+    <script src="./assets/code.js"></script>
     <script src="./js/login.js"></script>
 </head>
 
@@ -29,10 +31,10 @@
         <h3>源码空间后台系统</h3>
         <!-- 登录模块 -->
         <div class="login-box">
-            <form class="layui-form" action="">
+            <form class="layui-form" action="" id="form-login">
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-username"></i>
-                    <input type="text" name="uid" required lay-verify="uid" placeholder="请输入账号" autocomplete="off"
+                    <input type="text" name="ulogid" required lay-verify="uid" placeholder="请输入账号" autocomplete="off"
                         class="layui-input">
                 </div>
                 <div class="layui-form-item">
@@ -41,19 +43,19 @@
                         autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-item">
-                    <button lay-submit="" class="layui-btn layui-btn-fluid login-btn">立即登录</button>
+                    <button lay-submit="" class="layui-btn layui-btn-fluid">立即登录</button>
                 </div>
                 <span>
-                    <a href="javascript:;">找回密码</a>|<a href="javascript:;" class="link-reg">注册账号</a>
+                    <a href="javascript:;" class="link-find">找回密码</a>|<a href="javascript:;" class="link-reg">注册账号</a>
                 </span>
             </form>
         </div>
         <!-- 注册模块 -->
         <div class="reg-box">
-            <form class="layui-form" action="">
+            <form class="layui-form" action="" id="form-reg">
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-username"></i>
-                    <input type="text" name="uid" required lay-verify="required|uid" placeholder="请输入账号"
+                    <input type="text" name="ulogid" required lay-verify="required|uid" placeholder="请输入账号"
                         autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-item">
@@ -72,10 +74,103 @@
                         autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-item">
-                    <button lay-submit="" class="layui-btn layui-btn-fluid reg-btn">立即注册</button>
+                    <button lay-submit="" class="layui-btn layui-btn-fluid">立即注册</button>
                 </div>
             </form>
             <a href="javascript:;" class="link-login">已有账号?登录</a>
+        </div>
+        <!-- 找回密码模块 -->
+        <div class="findpwd-box">
+            <!-- 找回密码导航 -->
+            <div class="fpwd-nav">
+                <span class="layui-breadcrumb" lay-separator="—">
+                    <strong><cite>填写账号</cite></strong>
+                    <span lay-separator="">—</span>
+                    <strong>邮箱认证</strong>
+                    <span lay-separator="">—</span>
+                    <strong>修改密码</strong>
+                    <span lay-separator="">—</span>
+                    <strong>完成</strong>
+                </span>
+            </div>
+            <!-- 找回密码内容 -->
+            <div class="fpwd-content">
+                <!-- 填写账号 -->
+                <div class="">
+                    <form class="layui-form" action="" id="form-fpwdid">
+                        <!-- 输入框 -->
+                        <div class="layui-form-item">
+                            <i class="layui-icon layui-icon-username"></i>
+                            <input type="text" name="ulogid" required lay-verify="required|uid" placeholder="请输入账号"
+                                autocomplete="off" class="layui-input">
+                        </div>
+                        <!-- 验证码 -->
+                        <div class="layui-form-item">
+                            <div class="layui-input-inline">
+                                <input type="text" placeholder="验证码不区分大小写" class="input-val layui-input">
+                            </div>
+                            <canvas id="canvas" width="100" height="44" data-code="e4fr"></canvas>
+                        </div>
+                        <!-- 提交按钮 -->
+                        <div class="layui-form-item">
+                            <button lay-submit="" class="layui-btn layui-btn-fluid">确定</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- 邮箱认证 -->
+                <div class="fpwd">
+                    <form class="layui-form" action="" id="form-fpwdemail">
+                        <!-- 邮箱输入框 -->
+                        <div class="layui-form-item">
+                            <i class="layui-icon layui-icon-username"></i>
+                            <input type="text" name="uemail" required lay-verify="required|email" placeholder="请输入邮箱"
+                                autocomplete="off" class="layui-input" id="uemail-input">
+                        </div>
+                        <!-- 验证码和按钮 -->
+                        <div class="layui-form-item">
+                            <div class="layui-input-inline layui-col-md8">
+                                <input type="text" value="" name="code" class="layui-input input-val" placeholder="请输入邮箱验证码">
+                            </div>
+                            <button type="button" class="layui-btn layui-col-md* btn-getemailcode">获取邮箱验证码</button>
+                        </div>
+                        <!-- 提交按钮 -->
+                        <div class="layui-form-item">
+                            <button lay-submit="" class="layui-btn layui-btn-fluid">确定</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- 重置密码 -->
+                <div class="fpwd">
+                    <form class="layui-form" action="" id="form-fpwdpwd">
+                        <div class="layui-form-item">
+                            <i class="layui-icon layui-icon-username"></i>
+                            <input type="text" name="newpwd" required lay-verify="required|upwd" placeholder="请输入新密码"
+                                autocomplete="off" class="layui-input">
+                        </div>
+                        <div class="layui-form-item">
+                            <i class="layui-icon layui-icon-username"></i>
+                            <input type="text" name="aginpwd" required lay-verify="required|upwd" placeholder="请再次输入新密码"
+                                autocomplete="off" class="layui-input">
+                        </div>
+                        <!-- 提交按钮 -->
+                        <div class="layui-form-item">
+                            <button lay-submit="" class="layui-btn layui-btn-fluid">确定</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- 完成 -->
+                <div class="fpwd">
+                    <div class="finalydiv">
+                        <i class="layui-icon layui-icon-face-smile"></i>
+                        <span></span>
+                    </div>
+                    <!-- 提交按钮 -->
+                    <div class="layui-form-item">
+                        <button lay-submit="" class="layui-btn layui-btn-fluid btn-backLog">立即登录</button>
+                    </div>
+                </div>
+            </div>
+            <a href="javascript:;" class="btn-backLog">返回登录</a>
         </div>
     </div>
 </body>

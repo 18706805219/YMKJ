@@ -44,12 +44,13 @@ body {
     letter-spacing: 6px;
 }
 
-.reg-box {
+.reg-box,.findpwd-box {
     display: none;
 }
 
 .login-box,
-.reg-box {
+.reg-box,
+.findpwd-box {
     padding: 0 80px;
 }
 
@@ -75,6 +76,49 @@ body {
     margin: 0 5px;
 }
 
-.reg-box a {
+.reg-box a,
+.findpwd-box>a {
     float: right;
+}
+
+.findpwd-box .fpwd-nav {
+    text-align: center;
+}
+
+.findpwd-box .fpwd-content {
+    padding-top: 30px;
+}
+
+.findpwd-box .layui-breadcrumb {
+    visibility: visible;
+}
+
+.findpwd-box .layui-breadcrumb cite {
+    color: #00a0e9;
+    font-style: normal;
+}
+
+.findpwd-box .fpwd-content .fpwd {
+    display: none;
+}
+
+.fpwd-content .input-val {
+    padding: 0;
+    text-align: center;
+}
+
+.fpwd-content .btn-getemailcode {
+    width: 134px;
+}
+
+.finalydiv,
+.finalydiv i{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    height: 80x;
+    font-size: 25px;
+    text-align: center;
+    line-height: 80px;
+    color: #00a0e9;
 }
