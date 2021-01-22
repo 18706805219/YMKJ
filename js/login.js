@@ -83,16 +83,23 @@ $(function () {
                         content: res.msg
                     });
                 }
-                layer.open({
-                    title: '提示',
-                    icon: 1,
-                    content: res.msg
-                });
+                // 创建一个会话存储,用于判断用户是否退出过浏览器
+                // true:没退出过
+                sessionStorage.setItem("isexit", true);
                 // 本地存储对象
                 const storage = window.localStorage;
                 // 将token字符串添加到本地存储
                 storage.setItem("user", res.token);
                 $("#form-login")[0].reset();
+                layer.open({
+                    title: '提示',
+                    icon: 1,
+                    content: res.msg,
+                    time: 1000,
+                    end: () => {
+                        location.href = "./index.html";
+                    }
+                });
             }
         );
     });

@@ -2,3 +2,14 @@
 $.ajaxPrefilter((options) => {
     options.url = "http://192.168.230.1:8021" + options.url;
 });
+
+// 每次调用需要登录身份认证的接口时,先判断是否关闭过浏览器
+$(function () {
+    // 判断是否关闭过浏览器
+    if (!sessionStorage.getItem("isexit")) {
+        // 清空localStorage
+        if (localStorage.getItem("user")) {
+            localStorage.removeItem("user");
+        }
+    }
+});
