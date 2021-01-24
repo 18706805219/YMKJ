@@ -33,7 +33,10 @@ $(function () {
                         content: res.msg
                     });
                 }
+                // 重新渲染基础信息
                 getUserInfo();
+                // 重新渲染首页头像和昵称
+                window.parent.getUserAvatarNick();
                 layer.open({
                     title: '提示',
                     icon: 1,
@@ -64,7 +67,11 @@ $(function () {
                     return layer.open({
                         title: '提示',
                         icon: 2,
-                        content: '获取用户信息失败,请稍后再试!'
+                        content: '用户登录信息无效，请重新登录！',
+                        time: 2000,
+                        end: function () {
+                            location.href = "./../../login.html";
+                        }
                     });
                 }
                 // 渲染基本信息

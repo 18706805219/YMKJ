@@ -1,4 +1,4 @@
-﻿/*!
+/*!
  * Cropper v3.0.0
  */
 
@@ -364,7 +364,7 @@ layui.define(['jquery'], function (exports) {
                 endianness = dataView.getUint16(tiffOffset);
                 littleEndian = endianness === 0x4949;
 
-                if (littleEndian || endianness === 0x4D4D /* bigEndian */) {
+                if (littleEndian || endianness === 0x4D4D /* bigEndian */ ) {
                     if (dataView.getUint16(tiffOffset + 2, littleEndian) === 0x002A) {
                         firstIFDOffset = dataView.getUint32(tiffOffset + 4, littleEndian);
 
@@ -382,7 +382,7 @@ layui.define(['jquery'], function (exports) {
             for (i = 0; i < length; i += 1) {
                 offset = ifdStart + i * 12 + 2;
 
-                if (dataView.getUint16(offset, littleEndian) === 0x0112 /* Orientation */) {
+                if (dataView.getUint16(offset, littleEndian) === 0x0112 /* Orientation */ ) {
                     // 8 is the offset of the current tag's value
                     offset += 8;
 
@@ -1247,9 +1247,9 @@ layui.define(['jquery'], function (exports) {
             }
 
             if (self.trigger('cropstart', {
-                originalEvent: originalEvent,
-                action: action
-            }).isDefaultPrevented()) {
+                    originalEvent: originalEvent,
+                    action: action
+                }).isDefaultPrevented()) {
                 return;
             }
 
@@ -1277,9 +1277,9 @@ layui.define(['jquery'], function (exports) {
             e.preventDefault();
 
             if (self.trigger('cropmove', {
-                originalEvent: originalEvent,
-                action: action
-            }).isDefaultPrevented()) {
+                    originalEvent: originalEvent,
+                    action: action
+                }).isDefaultPrevented()) {
                 return;
             }
 
@@ -1770,7 +1770,16 @@ layui.define(['jquery'], function (exports) {
         }
     };
 
-    function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length) ; i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+    function _toConsumableArray(arr) {
+        if (Array.isArray(arr)) {
+            for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+                arr2[i] = arr[i];
+            }
+            return arr2;
+        } else {
+            return Array.from(arr);
+        }
+    }
 
     function getPointersCenter(pointers) {
         var pageX = 0;
@@ -2046,10 +2055,10 @@ layui.define(['jquery'], function (exports) {
                 }
 
                 if (self.trigger('zoom', {
-                    originalEvent: originalEvent,
-                    oldRatio: width / naturalWidth,
-                    ratio: newWidth / naturalWidth
-                }).isDefaultPrevented()) {
+                        originalEvent: originalEvent,
+                        oldRatio: width / naturalWidth,
+                        ratio: newWidth / naturalWidth
+                    }).isDefaultPrevented()) {
                     return;
                 }
 
@@ -2623,9 +2632,28 @@ layui.define(['jquery'], function (exports) {
         }
     };
 
-    var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+    var _createClass = function () {
+        function defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+                var descriptor = props[i];
+                descriptor.enumerable = descriptor.enumerable || false;
+                descriptor.configurable = true;
+                if ("value" in descriptor) descriptor.writable = true;
+                Object.defineProperty(target, descriptor.key, descriptor);
+            }
+        }
+        return function (Constructor, protoProps, staticProps) {
+            if (protoProps) defineProperties(Constructor.prototype, protoProps);
+            if (staticProps) defineProperties(Constructor, staticProps);
+            return Constructor;
+        };
+    }();
 
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
 
     var CLASS_HIDDEN = 'cropper-hidden';
     var REGEXP_DATA_URL = /^data:/;

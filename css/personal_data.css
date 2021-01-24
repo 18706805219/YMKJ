@@ -1,0 +1,50 @@
+.container-fluid {
+    background-color: #eeeeee;
+}
+
+.list {
+    padding: 15px 0;
+}
+
+.list .box {
+    text-align: center;
+    background-color: #fff;
+}
+
+.list .box em {
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.list .box span {
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.list .box b {
+    display: block;
+    margin-top: 6px;
+    font-weight: normal;
+    background-color: #dfdfdf;
+}
+
+.list .box1 em,
+.list .box1 span {
+    color: rgb(233, 204, 78);
+}
+
+.list .box2 em,
+.list .box2 span {
+    color: rgb(124, 187, 62);
+}
+
+.list .box3 em,
+.list .box3 span {
+    color: rgb(92, 105, 224);
+}
+
+.list .box4 em,
+.list .box4 span {
+    color: rgb(228, 103, 197);
+}

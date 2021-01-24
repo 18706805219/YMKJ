@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>源码空间-修改密码</title>
+    <link rel="shortcut icon" href="./../../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./../../assets/layui/css/layui.css">
+    <link rel="stylesheet" href="./../../css/user/userinfo_editpwd.css">
+    <script src="./../../assets/jquery-3.5.1.js"></script>
+    <script src="./../../assets/layui/layui.all.js"></script>
+    <script src="./../../assets/baseAPI.js"></script>
+    <script src="./../../js/user/userinfo_editpwd.js"></script>
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">修改密码</div>
+        <div class="layui-card-body">
+            <form class="layui-form" action="" id="form-editpwd" lay-filter="form_editpwd">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">旧密码</label>
+                    <div class="layui-input-block">
+                        <input type="password" name="oldupwd" required lay-verify="required|upwd" placeholder="请输入旧密码"
+                            autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">新密码</label>
+                    <div class="layui-input-block">
+                        <input type="password" name="newupwd" required lay-verify="required|upwd|newupwd" placeholder="请输入新密码"
+                            autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">确认密码</label>
+                    <div class="layui-input-block">
+                        <input type="password" name="aginupwd" required lay-verify="required|aginupwd" placeholder="请输入再次输入新密码"
+                            autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button lay-submit="" class="layui-btn">立即修改</button>
+                        <button type="reset" class="layui-btn layui-btn-primary reset_userinfo_pwd">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
