@@ -52,11 +52,17 @@ $(function () {
                     });
                 } else {
                     $("#form-editpwd")[0].reset();
+                    if (localStorage.getItem("user")) {
+                        localStorage.removeItem("user");
+                    }
                     layer.open({
                         title: "提示",
                         icon: 1,
                         content: "修改密码成功！",
-                        time: 1000
+                        time: 1000,
+                        end: () => {
+                            window.parent.location.href = "./../../login.html";
+                        }
                     });
                 }
             }
