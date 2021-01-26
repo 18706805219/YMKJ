@@ -42,6 +42,7 @@ function getUserAvatarNick() {
                     title: '提示',
                     icon: 2,
                     content: '身份认证失败,请重新登录！',
+                    time: 1500,
                     end: () => {
                         location.href = "./login.html";
                     }
