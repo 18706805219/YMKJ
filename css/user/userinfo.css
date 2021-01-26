@@ -1,0 +1,15 @@
+body {
+    background-color: #d2d2d2;
+}
+.layui-tab-card {
+    margin: 15px;
+    background-color: #fff;
+}
+
+.layui-table {
+    width: 30% !important;
+}
+
+.layui-form {
+    width: 40% !important;
+}

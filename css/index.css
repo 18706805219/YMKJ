@@ -1,0 +1,66 @@
+.layui-header .layui-logo {
+    background: url(./../img/logo.png) no-repeat;
+    background-color: rgba(255, 255, 255, .8);
+    background-size: 100% 100%;
+}
+
+.layui-nav-item .user_a {
+    height: 70px !important;
+    line-height: 70px !important;
+    text-align: center;
+    border-bottom: 2px solid #000;
+}
+
+.layui-nav-item a i {
+    margin-right: 10px;
+}
+
+.layui-body {
+    overflow: hidden;
+}
+
+.layui-body iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.layui-footer {
+    text-align: center;
+    background-color: #c2c2c2 !important;
+}
+
+.layui-nav-item .welcome_text {
+    position: relative;
+    top: 2px;
+}
+
+.layui-nav-item .user_avatar {
+    position: relative;
+    top: 2px;
+    margin-right: 10px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #009688;
+}
+
+.layui-nav-tree .layui-nav-child dd a {
+    text-align: center;
+}
+
+.layui-layout-right .layui-nav-item {
+    margin-right: 25px;
+}
+
+.layui-layout-right .right_user_a {
+    padding-left: 0 !important;
+}
+
+.layui-layout-right .layui-nav-item .link_exit {
+    padding: 0 15px 0 10px !important;
+}
