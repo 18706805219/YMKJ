@@ -44,7 +44,7 @@
                 <!--  lay-shrink="all": 当一个兄弟打开时,关闭其他兄弟 -->
                 <ul class="layui-nav layui-nav-tree" lay-shrink="all">
                     <li class="layui-nav-item">
-                        <a href="" class="user_a">
+                        <a href="javascript:;" class="user_a">
                             <img src="http://t.cn/RCzsdCq" class="layui-nav-img avatar">
                             <span class="user_avatar">张</span>
                             <span class="welcome_text">欢迎××</span>
@@ -60,9 +60,9 @@
                             <i class="layui-icon layui-icon-list"></i>文章管理
                         </a>
                         <dl class="layui-nav-child">
-                            <dd><a href="./page/article/publish_article.html" target="fm"><i class="layui-icon layui-icon-search"></i>查看文章</a></dd>
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-set-sm"></i>管理文章</a></dd>
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-release"></i>发布文章</a></dd>
+                            <dd><a><i class="layui-icon layui-icon-search"></i>查看文章</a></dd>
+                            <dd><a href="./page/article/showlist_article.html" target="fm" class="article_list"><i class="layui-icon layui-icon-set-sm"></i>管理文章</a></dd>
+                            <dd><a href="./page/article/publish_article.html" target="fm"><i class="layui-icon layui-icon-release"></i>发布文章</a></dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
@@ -80,6 +80,9 @@
         </div>
 
         <div class="layui-body">
+            <!-- <iframe src="./page/article/showlist_article.html" frameborder="0" name="fm">
+
+            </iframe> -->
             <iframe src="./page/personal_data.html" frameborder="0" name="fm">
 
             </iframe>
