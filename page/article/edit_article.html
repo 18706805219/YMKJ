@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>源码空间-修改文章</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./../../assets/layui/css/layui.css">
+    <link rel="stylesheet" href="./../../assets/cropper/cropper.min.css">
+    <link rel="stylesheet" href="./../../css/article/edit_article.css">
+    <script src="./../../assets/jquery-3.5.1.js"></script>
+    <script src="./../../assets/layui/layui.all.js"></script>
+    <script src="./../../assets/cropper/cropper.js"></script>
+    <script src="./../../assets/cropper/croppers.js"></script>
+    <script src="./../../assets/tinymce/tinymce.min.js"></script>
+    <script src="./../../assets/tinymce/tinymce_setup.js"></script>
+    <script src="./../../assets/template-web.js"></script>
+    <script src="./../../assets/baseAPI.js"></script>
+    <script src="./../../js/article/edit_article.js"></script>
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">修改文章</div>
+        <div class="layui-card-body">
+            <form class="layui-form" action="" id="edit_article">
+                <!-- 文章标题和类型模块 -->
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">文章标题</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="title" required lay-verify="required" placeholder="请输入文章标题"
+                                autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">文章类型</label>
+                        <div class="layui-input-block">
+                            <select name="type_id" lay-verify="required">
+                                <script type="text/html" id="article_type">
+                                    <option value="" id="article_tp" selected></option>
+                                    {{ each data }}
+                                    <option value="{{ $value.id }}">{{ $value.type }}</option>
+                                    {{ /each }}
+                                </script>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- 文章内容模块 -->
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">文章内容</label>
+                    <div class="layui-input-block">
+                        <textarea name="content" placeholder="请输入内容" class="layui-textarea content"></textarea>
+                    </div>
+                </div>
+                <!-- 文章封面模块 -->
+                <div class="layui-form-item">
+                    <label class="layui-form-label">文章封面</label>
+                    <div class="layui-input-block">
+                        <div class="tailoring-content">
+                            <div class="tailoring-content-one">
+                                <label title="上传图片" for="chooseImg" class="l-btn choose-btn">
+                                    <input type="file" accept="image/jpg,image/jpeg,image/png" id="chooseImg"
+                                        class="hidden">
+                                    选择图片
+                                </label>
+                                <span id="filename">未选择图片</span>
+                            </div>
+                            <div class="tailoring-content-two">
+                                <div class="tailoring-box-parcel">
+                                    <img id="image" src="./../../img/fm.jpg">
+                                </div>
+                                <div class="preview-box-parcel">
+                                    <p>图片预览：</p>
+                                    <div class="square previewImg"></div>
+                                </div>
+                            </div>
+                            <div class="tailoring-content-three">
+                                <button class="l-btn cropper-reset-btn">复位</button>
+                                <button class="l-btn cropper-rotate-btn">旋转</button>
+                                <button class="l-btn cropper-scaleX-btn">换向</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 提交模块 -->
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <input type="hidden" name="status" value="">
+                        <button class="layui-btn" id="btn-pubilish" lay-submit>立即修改</button>
+                        <button class="layui-btn" id="btn-save" lay-submit>保存草稿</button>
+                        <button type="reset" id="btn-reset" class="layui-btn">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

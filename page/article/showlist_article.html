@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>源码空间-文章列表</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./../../assets/layui/css/layui.css">
+    <link rel="stylesheet" href="./../../css/article/showlist_article.css">
+    <script src="./../../assets/jquery-3.5.1.js"></script>
+    <script src="./../../assets/layui/layui.all.js"></script>
+    <script src="./../../assets/template-web.js"></script>
+    <script src="./../../assets/baseAPI.js"></script>
+    <script src="./../../js/article/showlist_article.js"></script>
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">管理文章</div>
+        <div class="layui-card-body">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="200">
+                    <col width="100">
+                    <col width="200">
+                    <col width="150">
+                    <col width="100">
+                    <col width="150">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th align="center">文章标题</th>
+                        <th>文章类型</th>
+                        <th>创建时间</th>
+                        <th>文章作者</th>
+                        <th>文章状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="article_body">
+                    <script type="text/html" id="article_list">
+                        {{ each data }}
+                        <tr>
+                            <td>{{ $value.title }}</td>
+                            <td>{{ $value.type }}</td>
+                            <td>{{ $value.publishtime|dateFormat }}</td>
+                            <td>{{ $value.uname }}</td>
+                            <td>{{ $value.status }}</td>
+                            <td>
+                                <div class="layui-btn-group">
+                                    {{ if $value.status == "发布" }}
+                                    <button type="button" class="layui-btn layui-btn-primary layui-btn-sm layui-btn-disabled" disabled>
+                                        <i class="layui-icon">&#xe609;</i>
+                                    </button>
+                                    {{ else if $value.status == "草稿" }}
+                                    <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" id="btn-pub" data-id={{ $value.id }}>
+                                        <i class="layui-icon">&#xe609;</i>
+                                    </button>
+                                    {{ /if }}
+                                    <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" id="btn-edit" data-id={{ $value.id }}>
+                                        <i class="layui-icon">&#xe642;</i>
+                                    </button>
+                                    <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" id="btn-delete" data-id={{ $value.id }}>
+                                        <i class="layui-icon">&#xe640;</i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        {{ /each }}
+                    </script>
+                </tbody>
+            </table>
+            <div id="page">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
